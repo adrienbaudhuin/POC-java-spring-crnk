@@ -6,7 +6,7 @@ plugins {
 
 group = 'fr.concord'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '13'
+sourceCompatibility = '11é'
 
 configurations {
 	compileOnly {
