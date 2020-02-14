@@ -1,6 +1,6 @@
-package fr.concord.bff.agreement.model;
+package fr.concord.bff.user.model;
 
-import fr.concord.bff.user.model.User;
+import fr.concord.bff.agreement.model.Agreement;
 import io.crnk.core.resource.annotations.JsonApiId;
 import io.crnk.core.resource.annotations.JsonApiRelation;
 import io.crnk.core.resource.annotations.JsonApiResource;
@@ -14,21 +14,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Getter
 @Setter
 @NoArgsConstructor
-@JsonApiResource(type = "agreements")
-public class Agreement {
+@JsonApiResource(type = "users")
+public class User {
 
 	@JsonApiId
 	private String id;
 
 	@JsonProperty
-	private String content;
+	private String name;
 
-	@JsonApiRelation
-	private Set<User> users;
+	@JsonApiRelation(mappedBy = "users")
+	private Set<Agreement> agreements;
 
-	public Agreement(final String id, final String content, final Set<User> users) {
+	public User(final String id,
+	            final String name) {
 		this.id = id;
-		this.content = content;
-		this.users = users;
+		this.name = name;
 	}
 }
